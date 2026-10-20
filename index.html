@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aleef Ali Kodak</title>
+  <meta name="description" content="Aleef Ali Kodak — MSc Business Analytics student, creative & digital marketer, and co-founder of Elovs. Based in Dubai.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5efe6;
+      --surface: #fbf8f3;
+      --ink: #1c2421;
+      --muted: #5d6662;
+      --line: #e2d9cc;
+      --accent: #1f4a3f;
+      --accent-ink: #f5efe6;
+      --sand: #c9b79c;
+      --radius: 18px;
+      --max: 1120px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #121614;
+        --surface: #1a201d;
+        --ink: #ece6dc;
+        --muted: #a3aba6;
+        --line: #2c3430;
+        --accent: #8cc3b0;
+        --accent-ink: #10201b;
+        --sand: #8a7a62;
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 17px/1.65 "Inter", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+    h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1.15; margin: 0; }
+    .eyebrow {
+      font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted); font-weight: 600;
+    }
+
+    /* Nav */
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      background: color-mix(in srgb, var(--bg) 85%, transparent);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo { font-family: "Fraunces", serif; font-weight: 600; font-size: 20px; text-decoration: none; }
+    .logo span { color: var(--accent); }
+    nav ul { list-style: none; display: flex; gap: 28px; margin: 0; padding: 0; font-size: 15px; }
+    nav ul a { text-decoration: none; color: var(--muted); }
+    nav ul a:hover { color: var(--ink); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 12px 22px; border-radius: 999px;
+      font-weight: 500; font-size: 15px; text-decoration: none;
+      border: 1px solid var(--accent); transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: var(--accent-ink); }
+    .btn-ghost { color: var(--accent); }
+    .btn-ghost:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+
+    /* Hero */
+    .hero { padding: 88px 0 72px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.25fr 1fr; gap: 64px; align-items: center; }
+    .hero h1 { font-size: clamp(44px, 7vw, 84px); letter-spacing: -.02em; margin: 14px 0 20px; }
+    .hero .lede { font-family: "Fraunces", serif; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.35; margin: 0 0 18px; }
+    .hero .lede em { color: var(--accent); font-style: italic; }
+    .hero .sub { color: var(--muted); margin: 0 0 32px; max-width: 520px; }
+    .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .status { display: inline-flex; align-items: center; gap: 8px; }
+    .status::before {
+      content: ""; width: 8px; height: 8px; border-radius: 50%;
+      background: #3aa76d; box-shadow: 0 0 0 4px color-mix(in srgb, #3aa76d 25%, transparent);
+    }
+    .portrait {
+      position: relative; aspect-ratio: 4 / 5;
+      border-radius: 999px 999px var(--radius) var(--radius);
+      overflow: hidden; background: var(--line);
+    }
+    .portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+    .portrait-tag {
+      position: absolute; left: 16px; right: 16px; bottom: 16px;
+      background: var(--surface); color: var(--ink);
+      border-radius: 12px; padding: 12px 16px; font-size: 14px;
+      display: flex; justify-content: space-between; gap: 12px;
+    }
+    .portrait-tag b { font-weight: 600; }
+    .portrait-tag span { color: var(--muted); }
+
+    /* Stats */
+    .stats { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .stats .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 28px 24px; border-left: 1px solid var(--line); }
+    .stat:first-child { border-left: 0; padding-left: 0; }
+    .stat b { display: block; font-family: "Fraunces", serif; font-size: 36px; font-weight: 600; color: var(--accent); line-height: 1.1; }
+    .stat span { font-size: 14px; color: var(--muted); }
+
+    /* Sections */
+    section.block { padding: 96px 0; }
+    .head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 40px; }
+    .head h2 { font-size: clamp(30px, 4vw, 42px); }
+    .head .num { font-family: "Fraunces", serif; color: var(--sand); font-size: 18px; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; }
+    .about p { margin: 0 0 18px; }
+    .about p:first-child { font-size: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 28px;
+    }
+    .card h3 { font-size: 20px; margin-bottom: 14px; }
+    .ticks { list-style: none; padding: 0; margin: 0; }
+    .ticks li { padding: 10px 0 10px 28px; position: relative; border-top: 1px solid var(--line); font-size: 15px; }
+    .ticks li:first-child { border-top: 0; }
+    .ticks li::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+
+    /* Featured venture */
+    .feature {
+      display: grid; grid-template-columns: 1fr 1.1fr; overflow: hidden;
+      background: #1f3d36; color: #f3ece1; border-radius: 24px;
+    }
+    .feature img { width: 100%; height: 100%; object-fit: cover; min-height: 360px; }
+    .feature .body { padding: 48px; display: flex; flex-direction: column; justify-content: center; gap: 18px; }
+    .feature .eyebrow { color: #c9b79c; }
+    .feature h3 { font-size: clamp(28px, 3.4vw, 40px); }
+    .feature p { margin: 0; color: #d8d2c6; }
+    .feature .btn { border-color: #f3ece1; color: #f3ece1; align-self: flex-start; }
+    .feature .btn:hover { background: rgba(243, 236, 225, .1); }
+
+    /* Experience */
+    .timeline { list-style: none; margin: 0; padding: 0; }
+    .role {
+      display: grid; grid-template-columns: 200px 1fr; gap: 32px;
+      padding: 28px 0; border-top: 1px solid var(--line);
+    }
+    .role:last-child { border-bottom: 1px solid var(--line); }
+    .role .when { color: var(--muted); font-size: 14px; padding-top: 4px; }
+    .role .when b { display: block; color: var(--ink); font-weight: 500; font-size: 15px; }
+    .role h3 { font-size: 22px; margin-bottom: 4px; }
+    .role .org { color: var(--accent); font-weight: 500; font-size: 15px; margin-bottom: 10px; }
+    .role p { margin: 0 0 12px; color: var(--muted); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+    .chips li {
+      font-size: 13px; padding: 5px 12px; border-radius: 999px;
+      background: color-mix(in srgb, var(--accent) 9%, transparent); color: var(--accent);
+    }
+
+    /* Skills */
+    .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card .chips { margin-top: 4px; }
+    .card .label { font-size: 14px; color: var(--muted); margin: 0 0 16px; }
+
+    /* Education + certs */
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .entry { padding: 18px 0; border-top: 1px solid var(--line); }
+    .entry:first-of-type { border-top: 0; padding-top: 0; }
+    .entry h4 { margin: 0 0 2px; font-size: 17px; font-weight: 600; }
+    .entry div { color: var(--muted); font-size: 15px; }
+
+    /* Contact */
+    .contact {
+      text-align: center; padding: 96px 24px;
+      border-radius: 24px; background: var(--surface); border: 1px solid var(--line);
+    }
+    .contact h2 { font-size: clamp(34px, 5vw, 56px); margin: 12px 0 16px; }
+    .contact p { color: var(--muted); max-width: 560px; margin: 0 auto 32px; }
+    .contact .actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+
+    footer { padding: 40px 0; color: var(--muted); font-size: 14px; }
+    footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+    /* Reveal on scroll */
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero { padding: 48px 0 56px; }
+      .hero .wrap, .about, .feature, .grid2 { grid-template-columns: 1fr; }
+      .hero .wrap { gap: 40px; }
+      .portrait { max-width: 380px; }
+      .grid3 { grid-template-columns: 1fr; }
+      .stats .wrap { grid-template-columns: 1fr 1fr; }
+      .stat:nth-child(3) { border-left: 0; padding-left: 0; }
+      .stat:nth-child(n+3) { border-top: 1px solid var(--line); }
+      .feature .body { padding: 32px; }
+      .feature img { min-height: 280px; max-height: 420px; }
+      section.block { padding: 72px 0; }
+    }
+    @media (max-width: 640px) {
+      .wrap { padding: 0 16px; }
+      nav ul li:not(:last-child) { display: none; }
+      .role { grid-template-columns: 1fr; gap: 8px; }
+      .stat { padding: 20px 12px; }
+      .stat b { font-size: 28px; }
+      .contact { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a href="#top" class="logo">Aleef<span>.</span></a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#work">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact" class="btn btn-primary" style="padding:8px 18px;color:var(--accent-ink)">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow status">Dubai, UAE · Open to roles</div>
+        <h1>Aleef Ali Kodak</h1>
+        <p class="lede">I turn ideas into <em>brands</em> and data into <em>decisions</em>.</p>
+        <p class="sub">MSc Business Analytics student at the University of Wollongong in Dubai, a creative and digital marketer, and co-founder of Brillowelle and Elovs, premium household-care brands.</p>
+        <div class="actions">
+          <a href="#contact" class="btn btn-primary">Get in touch</a>
+          <a href="#work" class="btn btn-ghost">See my work →</a>
+        </div>
+      </div>
+      <div class="portrait">
+        <img src="assets/aleef.jpeg" alt="Portrait of Aleef Ali Kodak">
+        <div class="portrait-tag"><b>Co-founder, Brillowelle & Elovs</b><span>MSc '27 · UOWD</span></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="wrap">
+      <div class="stat"><b>3+ yrs</b><span>Design &amp; creative work</span></div>
+      <div class="stat"><b>10+</b><span>Clients across India &amp; GCC</span></div>
+      <div class="stat"><b>2</b><span>Ventures co-founded</span></div>
+      <div class="stat"><b>MSc</b><span>Business Analytics</span></div>
+    </div>
+  </div>
+
+  <main>
+    <section class="block" id="about">
+      <div class="wrap">
+        <div class="head reveal"><span class="num">01</span><h2>About</h2></div>
+        <div class="about">
+          <div class="reveal">
+            <p>I'm a business analytics student and creative marketer. I'm pursuing an MSc in Business Analytics at UOWD and have hands-on experience in graphic design, digital marketing and early-stage startups.</p>
+            <p>As co-founder of Brillowelle Solutions LLP, I ran social media campaigns, built visual identities and produced content for clients in India and the GCC, coordinating freelancers and managing creative production end to end. I've also led event production and operations, from vendor coordination to on-site execution.</p>
+            <p>Now I'm building up my technical skills in Python, data analysis and marketing analytics. I want to build and scale brands like <strong>Elovs</strong>, using data to guide positioning, pricing and growth.</p>
+          </div>
+          <aside class="card reveal">
+            <h3>What I'm into</h3>
+            <ul class="ticks">
+              <li>Marketing &amp; growth analytics: campaign performance, funnels, ROI</li>
+              <li>Creative direction for brands: design, content, photography, video</li>
+              <li>Consumer &amp; D2C brands, especially FMCG and household care</li>
+              <li>Building income streams through agencies, products and education</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" style="padding-top:0">
+      <div class="wrap">
+        <article class="feature reveal">
+          <img src="assets/brillowelle.jpeg" alt="Media One Super Cup 2025 Jeddah poster, created by Brillowelle">
+          <div class="body">
+            <div class="eyebrow">Co-founded agency · 2024 to 2025</div>
+            <h3>Brillowelle</h3>
+            <p>A strategy-first marketing agency that combines data with high-end creative. As co-founder, I planned and ran social media and digital campaigns for 10+ clients across India and the GCC, and produced the creative behind them.</p>
+            <p>Services include performance marketing, social media, video production, content creation, web development and e-commerce incubation. Clients include Media One, Lamit Roofings and Smoocho Treats.</p>
+            <a href="https://brillowelle.com" target="_blank" rel="noopener" class="btn">Visit brillowelle.com ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" style="padding-top:0">
+      <div class="wrap">
+        <article class="feature reveal">
+          <img src="assets/elovs-laundry-elixir.jpeg" alt="Elovs Laundry Elixir Classic bottle held in two hands">
+          <div class="body">
+            <div class="eyebrow">Featured venture · 2025 to present</div>
+            <h3>Elovs</h3>
+            <p>A premium household-care brand I'm co-building from scratch. Our first product, the <em>Laundry Elixir Classic</em>, is now live. I lead marketing and operations, from brand story and visuals to launch.</p>
+            <p>We started Elovs on a simple idea: everyday routines deserve the same care as everything else.</p>
+            <a href="https://elovs.co" target="_blank" rel="noopener" class="btn">Visit elovs.co ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="block" id="work" style="padding-top:0">
+      <div class="wrap">
+        <div class="head reveal"><span class="num">02</span><h2>Experience</h2></div>
+        <ol class="timeline">
+          <li class="role reveal">
+            <div class="when"><b>Oct 2025 – Present</b>South India · Hybrid</div>
+            <div>
+              <h3>Co-Founder</h3>
+              <div class="org">Elovs.co</div>
+              <p>Building a premium household-care brand from the ground up. I lead marketing and operations and took the first product from concept to launch.</p>
+              <ul class="chips"><li>Marketing</li><li>Operations</li><li>E-Commerce</li></ul>
+            </div>
+          </li>
+          <li class="role reveal">
+            <div class="when"><b>Apr 2025 – Present</b>UAE · On-site</div>
+            <div>
+              <h3>Event Production / Freelance Coordinator</h3>
+              <div class="org">Freelance</div>
+              <p>Coordinate event production with teams of freelancers and manage vendors, timelines and on-site execution.</p>
+              <ul class="chips"><li>Event Production</li><li>Vendor Management</li></ul>
+            </div>
+          </li>
+          <li class="role reveal">
+            <div class="when"><b>Oct 2024 – Oct 2025</b>Kerala, India · Hybrid</div>
+            <div>
+              <h3>Co-Founder</h3>
+              <div class="org">Brillowelle Solutions LLP</div>
+              <p>Planned and ran social media and digital campaigns for 10+ clients in India and the GCC. Created posters, flyers and video assets that fed into campaign strategy and reporting.</p>
+              <ul class="chips"><li>Digital Marketing</li><li>Social Media</li><li>Brand Identity</li></ul>
+            </div>
+          </li>
+          <li class="role reveal">
+            <div class="when"><b>Aug 2023 – Aug 2024</b>Dubai, UAE · Remote</div>
+            <div>
+              <h3>Data Analytics Intern</h3>
+              <div class="org">Entri Elevate</div>
+              <p>Worked on real-world datasets with Python: cleaning, analysing and visualising data to find useful insights.</p>
+              <ul class="chips"><li>Data Analytics</li><li>Python</li></ul>
+            </div>
+          </li>
+          <li class="role reveal">
+            <div class="when"><b>Jan 2023 – Present</b>Dubai, UAE · Hybrid</div>
+            <div>
+              <h3>Freelance Graphic Designer &amp; Creative</h3>
+              <div class="org">Freelance</div>
+              <p>Deliver branding, poster and video-editing projects for clients and manage each project from brief to delivery.</p>
+              <ul class="chips"><li>Adobe Photoshop</li><li>Video Editing</li><li>Branding</li></ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="block" id="skills" style="padding-top:0">
+      <div class="wrap">
+        <div class="head reveal"><span class="num">03</span><h2>Skills</h2></div>
+        <div class="grid3">
+          <div class="card reveal">
+            <h3>Analytics</h3>
+            <p class="label">Turning data into decisions</p>
+            <ul class="chips"><li>Data Analytics</li><li>Python</li><li>Business Analytics</li><li>Marketing Analytics</li><li>Data Science &amp; ML</li><li>Generative AI</li></ul>
+          </div>
+          <div class="card reveal">
+            <h3>Creative</h3>
+            <p class="label">Turning ideas into brands</p>
+            <ul class="chips"><li>Adobe Photoshop</li><li>Graphic Design</li><li>Video Editing</li><li>Video Production</li><li>Event Videography</li><li>Brand Identity</li></ul>
+          </div>
+          <div class="card reveal">
+            <h3>Business</h3>
+            <p class="label">Making it all run</p>
+            <ul class="chips"><li>Digital Marketing</li><li>E-Commerce</li><li>Operations</li><li>Event Production</li><li>Presentation Skills</li><li>Economics</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="education" style="padding-top:0">
+      <div class="wrap">
+        <div class="head reveal"><span class="num">04</span><h2>Education &amp; Certifications</h2></div>
+        <div class="grid2">
+          <div class="card reveal">
+            <h3>Education</h3>
+            <div class="entry">
+              <h4>University of Wollongong in Dubai</h4>
+              <div>Master's degree, Business Analytics · 2025 – 2027</div>
+            </div>
+            <div class="entry">
+              <h4>Kirori Mal College, University of Delhi</h4>
+              <div>BA, Economics &amp; Commerce · 2021 – 2024</div>
+            </div>
+          </div>
+          <div class="card reveal">
+            <h3>Certifications</h3>
+            <div class="entry">
+              <h4>Data Science and Machine Learning Certified User</h4>
+              <div>Illinois Institute of Technology · Aug 2024</div>
+            </div>
+            <div class="entry">
+              <h4>Introduction to Generative AI with GPT</h4>
+              <div>LinkedIn Learning · Oct 2025</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="contact" style="padding-top:0">
+      <div class="wrap">
+        <div class="contact reveal">
+          <div class="eyebrow">Let's work together</div>
+          <h2>Say hello.</h2>
+          <p>I'm open to roles and collaborations in Dubai that combine analytics, digital marketing and creative work, including marketing or data analyst, growth and performance, and creative digital marketing positions.</p>
+          <div class="actions">
+            <!-- TODO: replace with real email -->
+            <a href="mailto:hello@example.com" class="btn btn-primary">hello@example.com</a>
+            <a href="https://www.linkedin.com/in/aleef-ali-02483a257/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
+            <!-- TODO: link to resume PDF, e.g. assets/aleef-ali-kodak-resume.pdf -->
+            <a href="#" class="btn btn-ghost">Download résumé</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year"></span> Aleef Ali Kodak</span>
+      <span>Dubai, United Arab Emirates</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
